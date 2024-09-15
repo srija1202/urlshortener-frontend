@@ -9,7 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
 function ActivateAccount() {
   const { token } = useParams();
   const [message, setMessage] = useState('');
-
   useEffect(() => {
     const activateAccount = async () => {
       try {

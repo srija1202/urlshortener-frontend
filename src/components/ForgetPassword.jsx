@@ -1,14 +1,16 @@
-/* eslint-disable no-unused-vars */
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Form, Button, Container, Card } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 function ForgetPassword() {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [touched, setTouched] = useState(false);
+  const navigate = useNavigate();
 
   const validateEmail = (email) => {
     if (!email) return 'Email is required';
@@ -40,8 +42,11 @@ function ForgetPassword() {
       await axios.post('https://urlshortener-backend-lja7.onrender.com/api/auth/forget-password', { email });
       toast.success('Password reset link sent to your email');
       setEmail('');
+      window.location.reload();
+      localStorage.removeItem('token');
+      navigate('/');
     } catch (err) {
-      toast.error('Error occurred');
+      toast.error(err.response.data.message);
     }
   };
 

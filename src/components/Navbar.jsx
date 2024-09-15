@@ -28,7 +28,6 @@ const NavbarComponent = () => {
                 <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
                 <Nav.Link as={Link} to="/analytics">Analytics</Nav.Link>
                 <Nav.Link as={Link} to="/shortener">URLShortener</Nav.Link>
-                <Nav.Link as={Link} to="/reset-password">Reset Password</Nav.Link>
                 <Nav.Link as={Link} to="/forget-password">Forgot Password</Nav.Link>
                 <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
               </>

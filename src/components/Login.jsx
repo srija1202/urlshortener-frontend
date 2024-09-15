@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -66,7 +65,7 @@ function Login() {
         window.location.reload();
       }, 2000);
     } catch (err) {
-      toast.error('Login failed');
+      toast.error(err.response.data.message);
     } finally {
       setIsSubmitting(false);
     }

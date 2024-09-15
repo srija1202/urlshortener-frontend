@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Form, Button, Container, Card } from 'react-bootstrap';
@@ -39,11 +38,14 @@ function ResetPassword() {
     }
 
     try {
-      await axios.post(`https://urlshortener-backend-lja7.onrender.com/api/auth/reset-password/${token}`, { newPassword });
+      await axios.post(`https://urlshortener-backend-lja7.onrender.com/api/auth/reset-password/${token}`, 
+        { newPassword },
+        { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
+      );
       toast.success('Password reset successful');
       setNewPassword('');
     } catch (err) {
-      toast.error('Error occurred');
+      toast.error(err.response.data.message);
     }
   };
 

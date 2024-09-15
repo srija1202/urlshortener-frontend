@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -23,7 +22,7 @@ function Dashboard() {
         );
         setUrls(response.data);
       } catch (error) {
-        toast.error('Failed to load URLs. Please try again.');
+        toast.error(error.response.data.message);
       }
     };
 

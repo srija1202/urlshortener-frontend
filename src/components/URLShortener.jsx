@@ -26,11 +26,11 @@ const URLShortener = () => {
         setShortUrl(response.data.shortUrl); // Set the shortUrl state if present
         toast.success('URL shortened successfully!');
       } else {
-        toast.error('Failed to retrieve the shortened URL.');
+        toast.error(response.data.message);
       }
     } catch (error) {
       console.error('Error shortening URL:', error);
-      toast.error('Failed to shorten URL. Please try again.');
+      toast.error(error.response.data.message);
     } finally {
       setIsSubmitting(false);
     }

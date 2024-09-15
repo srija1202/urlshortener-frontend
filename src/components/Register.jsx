@@ -1,14 +1,16 @@
-/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import { useState } from 'react';
 import { Form, Button, Card, Container } from 'react-bootstrap';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
   const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', password: '' });
   const [errors, setErrors] = useState({ firstName: '', lastName: '', email: '', password: '' });
   const [touched, setTouched] = useState({ firstName: false, lastName: false, email: false, password: false });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
+
 
   const validateField = (name, value) => {
     switch (name) {
@@ -62,8 +64,9 @@ function Register() {
     try {
       await axios.post('https://urlshortener-backend-lja7.onrender.com/api/auth/register', formData);
       toast.success('Registration successful! Please check your email for activation.');
+      navigate('/login');
     } catch (err) {
-      toast.error('Registration failed');
+      toast.error(err.response.data.message);
     } finally {
       setIsSubmitting(false);
     }
