@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('./assets/HomeBanner.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+
+.card {
+  background: rgba(255, 255, 255, 0.8);
+}
