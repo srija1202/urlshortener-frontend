@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
+import axios from 'axios';
 import { useState } from 'react';
 import { Form, Button, Card, Container } from 'react-bootstrap';
 import { toast } from 'react-toastify';
-import axiosInstance from '../utils/axiosInstance';
 
 function Register() {
   const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', password: '' });
@@ -60,7 +60,7 @@ function Register() {
 
     setIsSubmitting(true);
     try {
-      await axiosInstance.post('http://localhost:5000/api/auth/register', formData);
+      await axios.post('http://localhost:5000/api/auth/register', formData);
       toast.success('Registration successful! Please check your email for activation.');
     } catch (err) {
       toast.error('Registration failed');

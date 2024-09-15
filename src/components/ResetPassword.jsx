@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axiosInstance from '../utils/axiosInstance';
 import { Form, Button, Container, Card } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 function ResetPassword() {
   const { token } = useParams();
@@ -39,7 +39,7 @@ function ResetPassword() {
     }
 
     try {
-      await axiosInstance.post(`http://localhost:5000/api/auth/reset-password/${token}`, { newPassword });
+      await axios.post(`http://localhost:5000/api/auth/reset-password/${token}`, { newPassword });
       toast.success('Password reset successful');
       setNewPassword('');
     } catch (err) {
