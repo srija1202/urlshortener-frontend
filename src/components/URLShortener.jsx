@@ -17,7 +17,7 @@ const URLShortener = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:5000/api/url/shorten',
+        'https://urlshortener-backend-lja7.onrender.com/api/url/shorten',
         { longUrl: originalUrl },
         { headers: { Authorization: `Bearer ${token}` } }
       );

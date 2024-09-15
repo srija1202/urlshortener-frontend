@@ -58,7 +58,7 @@ function Login() {
 
     setIsSubmitting(true);
     try {
-      const { data } = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      const { data } = await axios.post('https://urlshortener-backend-lja7.onrender.com/api/auth/login', { email, password });
       localStorage.setItem('token', data.token);
       toast.success('Login successful!');
       setTimeout(() => {

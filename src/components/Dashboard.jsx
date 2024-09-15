@@ -18,7 +18,7 @@ function Dashboard() {
       }
 
       try {
-        const response = await axios.get('http://localhost:5000/api/url/clicked-urls',
+        const response = await axios.get('https://urlshortener-backend-lja7.onrender.com/api/url/clicked-urls',
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setUrls(response.data);
@@ -48,7 +48,7 @@ function Dashboard() {
                 urls.map((url) => (
                   <tr key={url.shortUrl}>
                     <td>
-                      <a href={`http://localhost:5000/api/url/${url.shortUrl}`} target="_blank" rel="noopener noreferrer">
+                      <a href={`https://urlshortener-backend-lja7.onrender.com/api/url/${url.shortUrl}`} target="_blank" rel="noopener noreferrer">
                         {url.shortUrl}
                       </a>
                     </td>

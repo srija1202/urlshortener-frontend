@@ -60,7 +60,7 @@ function Register() {
 
     setIsSubmitting(true);
     try {
-      await axios.post('http://localhost:5000/api/auth/register', formData);
+      await axios.post('https://urlshortener-backend-lja7.onrender.com/api/auth/register', formData);
       toast.success('Registration successful! Please check your email for activation.');
     } catch (err) {
       toast.error('Registration failed');

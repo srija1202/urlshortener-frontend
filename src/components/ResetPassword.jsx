@@ -39,7 +39,7 @@ function ResetPassword() {
     }
 
     try {
-      await axios.post(`http://localhost:5000/api/auth/reset-password/${token}`, { newPassword });
+      await axios.post(`https://urlshortener-backend-lja7.onrender.com/api/auth/reset-password/${token}`, { newPassword });
       toast.success('Password reset successful');
       setNewPassword('');
     } catch (err) {

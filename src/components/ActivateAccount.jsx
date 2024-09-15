@@ -13,7 +13,7 @@ function ActivateAccount() {
   useEffect(() => {
     const activateAccount = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:5000/api/auth/activate/${token}`);
+        const { data } = await axios.get(`https://urlshortener-backend-lja7.onrender.com/api/auth/activate/${token}`);
         setMessage(data.message);
         toast.success(data.message);
       } catch (err) {

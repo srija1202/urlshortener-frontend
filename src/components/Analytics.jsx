@@ -19,7 +19,7 @@ function Analytics() {
 
       try {
         // Fetch all URL analytics data or top-clicked URLs data
-        const response = await axios.get('http://localhost:5000/api/url/clicked-urls', 
+        const response = await axios.get('https://urlshortener-backend-lja7.onrender.com/api/url/clicked-urls', 
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setUrlData(response.data);

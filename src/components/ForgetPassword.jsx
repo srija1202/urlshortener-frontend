@@ -37,7 +37,7 @@ function ForgetPassword() {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/auth/forget-password', { email });
+      await axios.post('https://urlshortener-backend-lja7.onrender.com/api/auth/forget-password', { email });
       toast.success('Password reset link sent to your email');
       setEmail('');
     } catch (err) {
