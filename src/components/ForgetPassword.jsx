@@ -42,9 +42,11 @@ function ForgetPassword() {
       await axios.post('https://urlshortener-backend-lja7.onrender.com/api/auth/forget-password', { email });
       toast.success('Password reset link sent to your email');
       setEmail('');
-      window.location.reload();
       localStorage.removeItem('token');
-      navigate('/');
+      window.setTimeout( function() {
+        window.location.reload();
+        navigate('/');
+      }, 30000);
     } catch (err) {
       toast.error(err.response.data.message);
     }
